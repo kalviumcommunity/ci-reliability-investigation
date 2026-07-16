@@ -18,3 +18,4 @@ describe('GET /api/status', () => {
     expect(res.body.timestamp).toBe(expectedTime);
   });
 });
+
