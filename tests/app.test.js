@@ -14,7 +14,7 @@ describe('GET /api/status', () => {
     // Asserting on the exact millisecond value of a dynamic timestamp.
     // Due to the processing time between generating the response and running this assertion,
     // this test will fail in environments with even slight latency (like GitHub Actions runners).
-    const expectedTime = new Date().toISOString();
-    expect(res.body.timestamp).toBe(expectedTime);
+   expect(res.body.timestamp).toBeDefined();
+    expect(new Date(res.body.timestamp).getTime()).not.toBeNaN();
   });
 });
