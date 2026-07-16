@@ -9,6 +9,7 @@ on:
 # SECURITY CONCERN: Overly permissive permissions (should be restricted to contents: read)
 permissions: write-all
 
+
 jobs:
   build-and-test:
     name: Build and Test Application
