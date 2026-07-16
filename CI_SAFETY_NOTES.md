@@ -1,0 +1,1 @@
+The safety concern here was the permissions was set to 'write-all' but anyone trigerring workflows should not have the write authority which is unsafe so the permissions was changed to contents: read.
