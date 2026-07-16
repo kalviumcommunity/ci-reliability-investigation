@@ -1,0 +1,35 @@
+![alt text](image.png)
+our workflow failed because here in ci.ml we are using npm run test-ci which should be given as npm test and permission to be as contents: read
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+# SECURITY CONCERN: Overly permissive permissions (should be restricted to contents: read)
+permissions: write-all
+
+jobs:
+  build-and-test:
+    name: Build and Test Application
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      # INTENTIONAL BUG: Executing 'test-ci' which does not exist in package.json
+      # This will fail the pipeline immediately.
+      - name: Run Test Suite
+        run: npm run test-ci
