@@ -4,7 +4,7 @@
 
 ### Symptoms
 
-GitHub Actions failed during the test execution step because the workflow referenced an incorrect npm command.
+Script test-ci was missing in package.json
 
 ### Diagnosis
 
@@ -12,19 +12,16 @@ The workflow used an invalid command, causing the runner to stop before completi
 
 ### Fix
 
-Replace the incorrect command with:
+Replaced the incorrect command:
 
-```bash
 npm test
-```
 
----
 
 ## Issue 2
 
 ### Symptoms
 
-Tests failed intermittently because the timestamp value differed by a few milliseconds.
+Flaky Timestamp Test Exact matching on `new Date().toISOString()` fails under network/processor latency in the runner. Fix: Verify timestamp validity or use regex match.
 
 ### Diagnosis
 
