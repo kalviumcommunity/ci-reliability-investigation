@@ -6,14 +6,14 @@ on:
   pull_request:
     branches: [ main ]
 
-# SECURITY CONCERN: Overly permissive permissions (should be restricted to contents: read)
-permissions: write-all
+# Secure permissions (Least Privilege)
+permissions:
+  contents: write
 
 jobs:
-  build-and-test:
-    name: Build and Test Application
+  lint:
+    name: Code Quality Linting
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -27,7 +27,25 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      # INTENTIONAL BUG: Executing 'test-ci' which does not exist in package.json
-      # This will fail the pipeline immediately.
+      - name: Run Linter
+        run: npm run lint
+
+  test:
+    name: Run Test Suite
+    runs-on: ubuntu-latest
+    needs: lint # Specifies multi-job dependency
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
       - name: Run Test Suite
-        run: npm run test-ci
+        run: npm test
