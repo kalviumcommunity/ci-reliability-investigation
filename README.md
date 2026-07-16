@@ -1,4 +1,4 @@
-# Continuous Assessment: CI Reliability Investigation Challenge
+# Continuous Assessment: CI Reliability Investigation Challenge - README
 
 ## Course: DevOps Engineering
 ## Module: CI/CD with GitHub Actions
