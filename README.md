@@ -141,3 +141,10 @@ To receive full marks, you must document your work with screenshots in your fina
 2. Ensure your PDF is titled: `[YourName]_[YourStudentID]_DevOps_CA2.pdf`.
 3. Submit the PDF to the university learning management platform (LMS) before the deadline.
 4. (Optional/If requested by tutor) Include the link to your public/private GitHub repository.
+
+
+---
+
+creating a new pr to activate github actions and see what the issue is comming in the workflow logs
+
+---
