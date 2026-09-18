@@ -15,6 +15,8 @@ describe('GET /api/status', () => {
     // Due to the processing time between generating the response and running this assertion,
     // this test will fail in environments with even slight latency (like GitHub Actions runners).
     const expectedTime = new Date().toISOString();
-    expect(res.body.timestamp).toBe(expectedTime);
+       
+    expect(res.body.timestamp).toMatch(/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z/);
+
   });
 });
