@@ -1,0 +1,3 @@
+ Safety Concern: Use of `permissions: write-all` in `.github/workflows/ci.yml`. helps to write everyone which creates security concern. write permission should only be given to admins or senior developers.
+ Risk:Anyone triggering the workflow (including via fork PRs or compromised dependency scripts) runs code with write capabilities to the repo.
+I fixed by applying `permissions: { contents: read }` to secure the repository assets. 
