@@ -9,7 +9,10 @@
 
 ---
 
+
 ## Scenario Description
+
+
 
 You are a Junior DevOps Engineer at a fast-growing tech company. The development team has just handed over a simple Node.js API with a basic testing and linting workflow. However, the continuous integration (CI) pipeline is failing in GitHub Actions, and they have noticed several security and structural inefficiencies in the workflow setup. 
 
