@@ -33,6 +33,7 @@ jobs:
         run: npm test
     -name: Run Build Suite
     run : npm build
+    
   validation:
     name: Build and Test Application
     runs-on: ubuntu-latest
