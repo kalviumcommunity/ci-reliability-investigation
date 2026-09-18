@@ -11,6 +11,7 @@ app.get('/api/status', (req, res) => {
 // In production/local start, we'd wrap this or listen in a server.js file
 
 if (require.main === module) {
+  
   const PORT = process.env.PORT || 3000;
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
