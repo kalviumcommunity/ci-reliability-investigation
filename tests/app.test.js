@@ -1,4 +1,5 @@
 const request = require('supertest');
+
 const app = require('../src/app');
 
 describe('GET /api/status', () => {
@@ -9,12 +10,10 @@ describe('GET /api/status', () => {
 
     expect(res.body.success).toBe(true);
     expect(res.body.data.status).toBe('healthy');
-    
-    // INTENTIONAL FLAKINESS / DEFECT:
-    // Asserting on the exact millisecond value of a dynamic timestamp.
-    // Due to the processing time between generating the response and running this assertion,
-    // this test will fail in environments with even slight latency (like GitHub Actions runners).
-    const expectedTime = new Date().toISOString();
-    expect(res.body.timestamp).toBe(expectedTime);
+
+    // Verify that the timestamp exists and is a valid timestamp.
+    expect(res.body.timestamp).toBeDefined();
+    expect(typeof res.body.timestamp).toBe('string');
+    expect(Number.isNaN(Date.parse(res.body.timestamp))).toBe(false);
   });
 });
