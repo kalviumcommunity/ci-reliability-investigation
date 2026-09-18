@@ -32,7 +32,7 @@ jobs:
       # This will fail the pipeline immediately.
       - name: Run Test Suite
         run: npm run test
-    lint:
+  lint:
     name: Code Quality Linting
     runs-on: ubuntu-latest
     steps:
