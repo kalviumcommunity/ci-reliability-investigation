@@ -7,7 +7,8 @@ on:
     branches: [ main ]
 
 # SECURITY CONCERN: Overly permissive permissions (should be restricted to contents: read)
-permissions: write-all
+permissions: 
+ contents: read
 
 jobs:
   build-and-test:
@@ -30,4 +31,4 @@ jobs:
       # INTENTIONAL BUG: Executing 'test-ci' which does not exist in package.json
       # This will fail the pipeline immediately.
       - name: Run Test Suite
-        run: npm run test-ci
+        run: npm test
