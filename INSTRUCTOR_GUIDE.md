@@ -46,7 +46,7 @@ Students must identify and fix three distinct issues across the pipeline configu
 ```javascript
 const request = require('supertest');
 const app = require('../src/app');
-
+  
 describe('GET /api/status', () => {
   it('should return a healthy status with a timestamp', async () => {
     const res = await request(app)
