@@ -99,6 +99,7 @@ npm start
    * The symptoms you saw in the workflow runner logs.
    * Your diagnosis of both issues.
    * Your proposed fixes.
+ 6. Investigate workflow execution.  
 
 ### Task 2: Improve Workflow Validation & Structure (8 Marks)
 1. Fix the faulty test suite in [tests/app.test.js](file:///tests/app.test.js) so that the assertion checks the presence or schema of the timestamp instead of relying on a flaky, precise millisecond match.
